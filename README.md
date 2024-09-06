@@ -25,3 +25,41 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+
+# Clean Architecture
+
+```
+/src
+  /app
+    /core
+      /domain
+        /entities
+          - user.ts
+        /repositories
+          - auth.repository.ts
+      /application
+        /use-cases
+          - login.use-case.ts
+          - validate-token.use-case.ts
+        /services
+          - auth-guard.service.ts
+          - auth.service.ts
+      /infrastructure
+        /repositories
+          - auth.repository.impl.ts
+        /providers
+          - localstorage.service.ts
+          - http.service.ts
+    /presentation
+      /components
+        /login
+          - login.component.ts
+          - login.component.html
+        /home
+          - home.component.ts
+          - home.component.html
+      /routes
+        - app-routing.module.ts
+    /app.module.ts
+```
